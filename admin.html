@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>관리자 패널 - hc place</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="admin-container">
+        <div class="admin-header">
+            <h1>📋 관리자 패널</h1>
+            <a href="index.html" class="back-btn">← 지도로 돌아가기</a>
+        </div>
+
+        <div class="admin-content">
+            <!-- 카테고리 설정 -->
+            <section class="admin-section">
+                <h2>카테고리 설정</h2>
+                <div class="category-settings">
+                    <div>
+                        <h3>🍽️ 맛집 카테고리</h3>
+                        <div id="restaurant-categories" class="category-list"></div>
+                        <div class="add-category">
+                            <input type="text" id="new-restaurant-cat" placeholder="새 카테고리 이름">
+                            <button onclick="addCategory('restaurant')">+ 추가</button>
+                        </div>
+                    </div>
+                    <div>
+                        <h3>🏞️ 숨은 장소 카테고리</h3>
+                        <div id="hidden-categories" class="category-list"></div>
+                        <div class="add-category">
+                            <input type="text" id="new-hidden-cat" placeholder="새 카테고리 이름">
+                            <button onclick="addCategory('hidden')">+ 추가</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 장소 관리 -->
+            <section class="admin-section">
+                <h2>장소 추가 및 관리</h2>
+                
+                <div class="add-location-form">
+                    <h3>새 장소 추가</h3>
+                    <div class="form-group">
+                        <label>유형 선택:</label>
+                        <select id="locationType">
+                            <option value="restaurant">🍽️ 맛집</option>
+                            <option value="hidden">🏞️ 숨은 장소</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>카테고리:</label>
+                        <select id="locationCategory"></select>
+                    </div>
+                    <div class="form-group">
+                        <label>장소 이름:</label>
+                        <input type="text" id="locationName" placeholder="예: 초계국수 맛집">
+                    </div>
+                    <div class="form-group">
+                        <label>설명:</label>
+                        <textarea id="locationInfo" placeholder="장소에 대한 설명을 입력하세요"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label>주소:</label>
+                        <input type="text" id="locationAddress" placeholder="예: 강원특별자치도 홍천군...">
+                    </div>
+                    <div class="form-group">
+                        <label>위도 (위치 지도에서 클릭):</label>
+                        <input type="number" id="locationLat" step="0.0001" placeholder="37.68">
+                    </div>
+                    <div class="form-group">
+                        <label>경도 (위치 지도에서 클릭):</label>
+                        <input type="number" id="locationLng" step="0.0001" placeholder="127.90">
+                    </div>
+                    <div class="form-group">
+                        <label>사진 URL:</label>
+                        <input type="text" id="locationImage" placeholder="https://example.com/image.jpg">
+                    </div>
+                    <div class="location-map">
+                        <p>💡 아래 지도를 클릭하면 위도/경도가 자동 입력됩니다</p>
+                        <div id="adminMap" style="height: 300px; border: 2px solid #1a5f3f; border-radius: 8px;"></div>
+                    </div>
+                    <button class="btn-primary" onclick="addLocation()">장소 추가</button>
+                </div>
+
+                <div class="locations-list">
+                    <h3>📍 등록된 장소 목록</h3>
+                    <div id="locationsList"></div>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="admin.js"></script>
+</body>
+</html>

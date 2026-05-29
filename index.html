@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>hc place - 홍천 지역 소개</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="sidebar">
+            <div class="sidebar-header">
+                <div class="logo-container">
+                    <h1>🏞️ hc place</h1>
+                </div>
+                <a href="admin.html" class="admin-link" title="관리자 패���">⚙️</a>
+            </div>
+            <div class="menu">
+                <div class="category">
+                    <button class="category-btn" data-category="restaurant">🍽️ 맛집</button>
+                    <ul class="submenu" id="restaurant-menu"></ul>
+                </div>
+                <div class="category">
+                    <button class="category-btn" data-category="hidden">🏞️ 숨은 장소</button>
+                    <ul class="submenu" id="hidden-menu"></ul>
+                </div>
+            </div>
+        </div>
+        <div class="map-container">
+            <div id="map"></div>
+        </div>
+        <div class="info-panel" id="infoPanel">
+            <button class="close-btn">✕</button>
+            <div class="info-content"></div>
+        </div>
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>
